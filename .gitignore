@@ -1,4 +1,4 @@
-demented/
-normal/
+classifier/demented/
+classifier/normal/
 __pycache__/
 model.ipynb

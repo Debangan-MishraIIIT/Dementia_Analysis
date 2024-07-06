@@ -4,7 +4,7 @@ from torchvision import models
 from dataset import get_loaders
 from tqdm import tqdm
 import torch.nn.functional as F
-from models import Network
+from backend.models import Network
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
