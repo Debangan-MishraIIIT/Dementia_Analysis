@@ -2,8 +2,10 @@ from flask import Flask, request, jsonify
 from model_handlers import get_model, get_predictions
 from io import BytesIO
 from PIL import Image
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
 model= None
 
@@ -32,7 +34,6 @@ def get_output():
     else:
         img_bytes= uploaded_file.read()
         img= Image.open(BytesIO(img_bytes)).convert("L")
-        
         try:
             prediction= get_predictions(img, model)
             return jsonify({"message": f"{prediction}"}), 200
